@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Flip list demo</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+
+body {
+    margin: 0;
+    background-color: #eee;
+    font-family: sans-serif;
+}
+
+main {
+    border-top: 20px solid #393;
+    padding: 50px;
+}
+
+h2 {
+    margin: 0 50px 20px;
+    font-size: 2em;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #090;
+}
+
+a {
+    color: #090;
+}
+
+.tile2 {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 20px 25px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #bbb;
+}
+
+/* 2.4. Actions */
+
+.actions { overflow: auto; }
+.actions > .left { float: left; }
+.actions > .right { float: right; }
+.middle_actions { text-align: center; }
+.actions form { display: inline; }
+
+/* Flip list */
+
+.fliplist {
+    background: none;
+    padding: 0;
+    list-style-type: none;
+}
+
+.fliplist li {
+    position: relative;
+    perspective: 1000px;
+    transition: height 0.2s;
+}
+
+.fliplist li:not(:first-child)::before {
+    display: block;
+    content: "";
+    height: 1px;
+    background-color: #ddd;
+    border-left: 25px solid #fff;
+    border-right: 25px solid #fff;
+}
+
+.fliplist .front, .fliplist .back {
+    position: relative;
+    box-sizing: border-box;
+    padding: 20px 25px;
+    width: 100%;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: transform 0.2s;
+}
+
+.fliplist li.open .front, .fliplist li:not(.open) .back {
+    position: absolute;
+    top: 1px;
+}
+
+.fliplist li:first-child.open .front, .fliplist li:first-child:not(.open) .back {
+    top: 0;
+}
+
+.fliplist li.open .front {
+    transform: rotateX(180deg);
+}
+
+.fliplist li:not(.open) .back {
+    transform: rotateX(-180deg);
+}
+
+.fliplist .front {
+    background-color: #fff;
+}
+
+.fliplist .back {
+    background-color: #f8f8f8;
+}
+
+</style>
+</head>
+<body>
+
+<main>
+  <h2>Friends list</h2>
+  <ul class="tile2 fliplist">
+    <li>
+      <div class="front actions">
+        <div class="left">apocalypseArisen</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>apocalypseArisen</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">adiosToreador</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>adiosToreador</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">twinArmageddons</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>twinArmageddons</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">carcinoGeneticist</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>carcinoGeneticist</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">arsenicCatnip</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>arsenicCatnip</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">grimAuxiliatrix</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>grimAuxiliatrix</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">gallowsCalibrator</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>gallowsCalibrator</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">arachnidsGrip</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>arachnidsGrip</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">centaursTesticle</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>centaursTesticle</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">terminallyCapricious</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>terminallyCapricious</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">caligulasAquarium</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>caligulasAquarium</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+    <li>
+      <div class="front actions">
+        <div class="left">cuttlefishCuller</div>
+        <div class="right"><a href="#" class="open">Delete</a> · <a href="#">Chat</a></div>
+      </div>
+      <div class="back actions">
+        <div class="left">Are you sure you want to delete <strong>cuttlefishCuller</strong>?</div>
+        <div class="right"><a href="#" class="close">No</a> · <button class="remove_item">Yes</button></div>
+      </div>
+    </li>
+  </ul>
+</main>
+
+<script>
+
+// TODO support multiple backs
+
+var current_fliplist_item;
+
+function open_fliplist_item(item) {
+    current_fliplist_item = item;
+    if (!item.style.height) {
+        item.style.height = height_of_child(item, ".front") + "px";
+    }
+    item.classList.add("open");
+    item.style.height = height_of_child(item, ".back") + "px";
+}
+
+function close_fliplist_item(item) {
+    if (current_fliplist_item == item) {
+        current_fliplist_item = null;
+    }
+    if (!item.style.height) {
+        item.style.height = height_of_child(item, ".back") + "px";
+    }
+    item.classList.remove("open");
+    item.style.height = height_of_child(item, ".front") + "px";
+}
+
+function height_of_child(item, selector) {
+    var border_height = item.previousElementSibling ? 1 : 0;
+    var height = item.querySelector(selector).getBoundingClientRect().height;
+    return height + border_height;
+}
+
+document.addEventListener("click", function(e) {
+    // Open fliplist items are like modal dialogs, so interacting with anything
+    // outside them should cause them to be closed.
+    if (current_fliplist_item && !current_fliplist_item.contains(e.target)) {
+        close_fliplist_item(current_fliplist_item);
+    }
+    // Items should only be opened by unmodified left clicks.
+    if (e.button != 0 || e.ctrlKey || e.metaKey) {
+        return;
+    }
+    if (e.target.matches(".fliplist a.open, .fliplist a.close")) {
+        e.preventDefault();
+        var li = e.target.closest(".fliplist > li");
+        li.classList.contains("open")
+            ? close_fliplist_item(li)
+            : open_fliplist_item(li);
+    } else if (e.target.matches(".fliplist button.remove_item")) {
+        // TODO should really be a form submit event
+        var li = e.target.closest(".fliplist > li");
+        li.parentNode.removeChild(li);
+    }
+    // TODO not needed when the chat links have actual targets
+    if (e.target.tagName == "A" && e.target.attributes.href.value == "#") {
+        e.preventDefault();
+    }
+});
+
+</script>
+
+</body>
+</html>
