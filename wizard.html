@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wizard</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<style>
+
+body {
+    margin: 0;
+    background-color: #eee;
+    font-family: sans-serif;
+    line-height: 1.5em;
+}
+
+main {
+    border-top: 20px solid #393;
+    padding: 50px;
+}
+
+h2 {
+    margin: 0 50px 20px;
+    font-size: 2em;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #090;
+}
+
+a {
+    color: #090;
+}
+
+.tile2 {
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 20px 25px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #bbb;
+}
+
+/* 2.4. Actions */
+
+.actions { overflow: auto; }
+.actions > .left { float: left; }
+.actions > .right { float: right; }
+.middle_actions { text-align: center; }
+.actions form { display: inline; }
+
+/* Wizard */
+
+.wizard {
+    max-width: 650px;
+    margin: 0 auto;
+    position: relative;
+    perspective: 2000px;
+}
+
+.wizard .tile2 {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    transition: transform 0.25s;
+    transform: rotateY(-180deg);
+}
+.wizard .current {
+    position: relative;
+    transform: rotateY(0);
+}
+.wizard .current ~ .tile2 {
+    transform: rotateY(180deg);
+}
+
+</style>
+</head>
+<body>
+
+<main>
+  <h2>Wizard</h2>
+  <section class="wizard">
+    <section class="tile2 current">
+      <h3>Step 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ut venenatis enim, a tempor sem. Proin non ante rhoncus, faucibus velit in, gravida dolor. Morbi fringilla neque et diam eleifend, at feugiat enim pharetra. Donec sapien mi, sollicitudin auctor finibus sed, accumsan quis lorem. Nullam auctor condimentum sem, non tempor lectus mollis eu. Proin tincidunt sollicitudin maximus. Nulla eu urna id sapien imperdiet pharetra ac ut nunc. Aliquam mollis sapien vel malesuada blandit. Donec commodo mattis ligula nec dignissim. Maecenas iaculis pretium dolor, vel egestas est feugiat tincidunt. Aliquam scelerisque volutpat odio id consectetur. Etiam molestie magna vel leo vehicula lobortis. Nam pretium pulvinar lorem, sit amet venenatis mauris luctus in.</p>
+      <div class="actions">
+        <div class="right"><button class="next">Next</button></div>
+      </div>
+    </section>
+    <section class="tile2">
+      <h3>Step 2</h3>
+      <p>Mauris et elit at velit pellentesque pretium vitae at augue. Proin laoreet posuere sagittis. Aliquam rutrum non lacus et rhoncus. Integer cursus purus eu odio auctor, vitae pellentesque nisl ornare. In ultrices, nibh at pellentesque vulputate, urna tortor luctus mauris, vel tempor lorem dolor porttitor elit. In posuere mauris sit amet libero condimentum, vel pharetra metus consectetur. Donec blandit tempor libero, vel lacinia risus fermentum non. Nunc bibendum orci vel suscipit interdum. Phasellus eget turpis ut erat imperdiet tincidunt. Aliquam sit amet ligula ipsum. Morbi eu justo purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="actions">
+        <div class="left"><button class="back">Back</button></div>
+        <div class="right"><button class="next">Next</button></div>
+      </div>
+    </section>
+    <section class="tile2">
+      <h3>Step 3</h3>
+      <p>Quisque felis justo, blandit et enim id, congue gravida nunc. In hac habitasse platea dictumst. Nulla sit amet mi vitae dui laoreet convallis id sed neque. Aliquam eu bibendum nulla. Integer nec diam consequat, mattis magna vitae, sodales odio. Donec malesuada massa a sapien commodo venenatis. Nullam malesuada nulla sed laoreet semper. Sed malesuada, libero et dignissim gravida, lectus quam vulputate ligula, eu fringilla odio ipsum quis urna.</p>
+      <div class="actions">
+        <div class="left"><button class="back">Back</button></div>
+        <div class="right"><button class="next">Next</button></div>
+      </div>
+    </section>
+    <section class="tile2">
+      <h3>Step 4</h3>
+      <p>Vivamus accumsan ipsum id risus tincidunt sagittis. Phasellus cursus hendrerit tellus. Nunc sed urna eu nisl mattis viverra. In hac habitasse platea dictumst. Donec porta laoreet erat quis scelerisque. Proin massa erat, venenatis eget enim sit amet, accumsan euismod augue. Aliquam vel felis non erat laoreet consequat at nec tellus. Pellentesque vulputate, risus quis pulvinar feugiat, risus lorem pretium turpis, ac tincidunt neque massa eu est. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis interdum malesuada.</p>
+      <div class="actions">
+        <div class="left"><button class="back">Back</button></div>
+        <div class="right"><button class="next">Next</button></div>
+      </div>
+    </section>
+    <section class="tile2">
+      <h3>Step 5</h3>
+      <p>Ut varius dignissim tellus rhoncus molestie. Praesent est ligula, lacinia nec accumsan ultrices, luctus eu felis. Ut venenatis vitae odio eget scelerisque. Fusce tellus sem, maximus in enim at, sagittis finibus nisl. Nunc ullamcorper tempor ultricies. Nulla nec lacus in risus fermentum tempus. In sollicitudin quam ut felis dignissim, tristique interdum quam volutpat. Sed magna orci, egestas quis pellentesque non, fermentum at metus. Nam tristique hendrerit feugiat. Sed ac velit sit amet tellus luctus blandit eu quis quam. Maecenas lectus justo, semper gravida tempor ut, tempor quis dui. Proin augue ligula, venenatis in nunc ac, gravida tempus metus. Aenean in nulla sed orci suscipit rhoncus. Phasellus vulputate metus et dictum commodo.</p>
+      <div class="actions">
+        <div class="left"><button class="back">Back</button></div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script>
+
+document.body.addEventListener("click", function(e) {
+    if (e.target.matches(".wizard .current .back")) {
+        const tile = e.target.parentNode.parentNode.parentNode;
+        if (tile.previousElementSibling) {
+            tile.previousElementSibling.classList.add("current");
+            tile.classList.remove("current");
+        }
+    }
+    if (e.target.matches(".wizard .current .next")) {
+        const tile = e.target.parentNode.parentNode.parentNode;
+        if (tile.nextElementSibling) {
+            tile.nextElementSibling.classList.add("current");
+            tile.classList.remove("current");
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
